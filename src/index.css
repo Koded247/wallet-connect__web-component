@@ -1,68 +1,207 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* General Styling */
 body {
+  font-family: "Poppins", sans-serif;
+  background-color: #121212;
+  color: white;
+  text-align: center;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Header */
+header {
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-button {
+/* Container */
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Wallet Card */
+.wallet-card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.wallet-label {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.wallet-address {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.wallet-network {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Buttons */
+.connect-btn,
+
+.wallet-btn,
+.network-btn {
+  background: linear-gradient(135deg, #4a90e2, #546475);
+  color: white;
+  border: none;
+  padding: 12px 18px;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.disconnect-btn{
+  background-color: rgb(55, 38, 38);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.connect-btn:hover,
+.wallet-btn:hover
+ {
+  background: linear-gradient(135deg, #1c2d40, #114378);
+}
+
+
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal {
+  background: #222;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  animation: slideUp 0.4s ease-in-out;
+}
+
+.modal h2 {
+  margin-bottom: 10px;
+}
+
+.modal-subtext {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 15px;
+}
+
+/* Wallet Buttons */
+.wallet-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.wallet-btn {
+  background: linear-gradient(135deg, #a8a1d5, #7565d6);
+  margin-bottom: 8px;
+}
+
+.wallet-btn:hover {
+  background: linear-gradient(135deg, #483d8b, #321f6a);
+}
+
+/* Close Button */
+.close-btn {
+  background: #444;
+  margin-top: 10px;
+}
+
+.close-btn:hover {
+  background: #666;
+}
+
+/* Network Dropdown */
+.network-dropdown {
+  position: relative;
+  margin-top: 10px;
+}
+
+.dropdown-toggle {
+  background:rgb(24, 24, 94);
+  width: 100%;
+}
+
+.dropdown-toggle:hover {
+  background: rgb(1, 50, 70);
+  width: 100%;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #222;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.dropdown-item {
+  padding: 10px;
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  a:hover {
-    color: #747bff;
+  to {
+    opacity: 1;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
   }
 }
