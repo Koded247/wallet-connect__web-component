@@ -50,10 +50,8 @@ header {
 
 /* Buttons */
 .connect-btn,
-
-.wallet-btn,
 .network-btn {
-  background:linear-gradient(135deg, #483d8b, #321f6a);
+  background: linear-gradient(135deg, #483d8b, #321f6a);
   color: white;
   display: flex;
   justify-content: space-between;
@@ -68,8 +66,7 @@ header {
 }
 
 .disconnect-btn{
-  background:linear-gradient(135deg, #483d8b, #321f6a);
- 
+  background: linear-gradient(135deg, #483d8b, #321f6a);
   color: rgb(247, 66, 66);
   border: none;
   padding: 12px 18px;
@@ -81,13 +78,9 @@ header {
   margin-top: 10px;
 }
 
-.connect-btn:hover,
-.wallet-btn:hover
- {
+.connect-btn:hover {
   background: linear-gradient(135deg, #171044, #3f2c75);
 }
-
-
 
 /* Modal Styling */
 .modal-overlay {
@@ -106,7 +99,7 @@ header {
 .modal {
   background: #1b1919;
   padding: 25px;
-  border:3px rgb(51, 33, 76) solid;
+  border: 3px rgb(51, 33, 76) solid;
   border-radius: 12px;
   border-bottom-right-radius: 4rem;
   border-bottom-left-radius: 4rem;
@@ -136,10 +129,56 @@ header {
 .wallet-btn {
   background: linear-gradient(135deg, #483d8b, #321f6a);
   margin-bottom: 8px;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+  color: white;
 }
 
 .wallet-btn:hover {
   background: linear-gradient(360deg, #261b6b, #4b3a7c);
+}
+
+/* Wallet button content with icons */
+.wallet-btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.wallet-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px;
+}
+
+.wallet-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.installed-text {
+  font-size: 10px;
+  color: #5ac481; 
+  display: block;
+  margin-top: 2px;
+}
+
+.wallet-text span:first-child {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 
 /* Close Button */
@@ -165,14 +204,15 @@ header {
 }
 
 .dropdown-toggle {
-  background:rgb(58, 42, 104);
+  background: rgb(58, 42, 104);
   width: 100%;
 }
 
 .dropdown-toggle:hover {
-  background:rgb(67, 53, 108);
+  background: rgb(67, 53, 108);
   width: 100%;
 }
+
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -198,6 +238,29 @@ header {
 
 .dropdown-item:hover {
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* Add this to your existing CSS */
+.installed-tag {
+  font-size: 11px;
+  color: #4ade80; /* Green color */
+  background-color: rgba(74, 222, 128, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 2px;
+  display: inline-block; /* Make sure it's visible */
+}
+
+/* Update the wallet-icon class to handle image loading issues */
+.wallet-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px; /* Prevent icon from shrinking */
+  margin-right: 12px;
+  object-fit: contain;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2px;
 }
 
 /* Animations */
