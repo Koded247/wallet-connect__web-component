@@ -9,6 +9,7 @@ export const config = createConfig({
   
     walletConnect({ projectId: import.meta.env.VITE_PROVIDER_ID }),
   ],
+  multiInjectedProviderDiscovery: true,
   transports: {
     [mainnet.id]: http(),
     [sepolia.id]: http(),

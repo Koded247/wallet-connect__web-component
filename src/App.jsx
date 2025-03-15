@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { MdOutlineDoubleArrow, MdOutlineKeyboardDoubleArrowDown, MdOutlineCancel} from "react-icons/md";
+
 import {
   useAccount,
   useConnect,
@@ -15,22 +17,8 @@ function App() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
 
-  const walletIcons = {
-    "MetaMask": "https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg",
-    "Phantom": "https://www.svgrepo.com/show/331345/coinbase.svg",
-    "WalletConnect": "https://seeklogo.com/images/W/walletconnect-logo-EE83B50C97-seeklogo.com.png",
-    "Trust Wallet": "https://cdn.prod.website-files.com/6597cc7be68d63ec0c8ce33f/668d443c227379bb3c38209e_Trust%20Wallet.webp",
-    "Rabby Wallet": "https://play-lh.googleusercontent.com/voFLXuFxLsIFBHQKmFxUhgAo23RXmO6_esdEb6ebfHQewdMlAfNKq3vAaDh6clJ7Pw",
-    "OKX Wallet": "https://altcoinsbox.com/wp-content/uploads/2023/03/okx-logo-black-and-white.jpg",
-    "Injected": "https://cdn-icons-png.flaticon.com/512/2121/2121421.png",
-    // Default icon for unknown wallets
-    "default": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOdmVbjiWksvRV0i4WCcgJoPybTqMVKEFIIA&s"
-  };
-  // Function to get wallet icon
-  const getWalletIcon = (walletName) => {
-    return walletIcons[walletName] || walletIcons.default;
-  };
 
   return (
     <div className="container">
@@ -41,13 +29,13 @@ function App() {
 
       {isConnected ? (
         <div className="wallet-card">
-          <p className="wallet-label">Connected Wallet</p>
+          <p className="wallet-label">Connected Wallet</p> 
           <p className="wallet-address">{address}</p>
           <p className="wallet-network">
             <strong>Network:</strong> {chain?.name} (ID: {chain?.id})
           </p>
           <button className="disconnect-btn" onClick={() => disconnect()}>
-            Disconnect
+           Disconnect
           </button>
 
           <div className="network-dropdown">
@@ -55,7 +43,7 @@ function App() {
               className="network-btn dropdown-toggle"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              Switch Network <p>🔻</p>
+              Switch Network <MdOutlineKeyboardDoubleArrowDown />
             </button>
             {isDropdownOpen && (
               <div className="dropdown-menu">
@@ -77,7 +65,7 @@ function App() {
         </div>
       ) : (
         <button className="connect-btn" onClick={() => setIsModalOpen(true)}>
-          Connect Wallet 
+          Connect Wallet <MdOutlineDoubleArrow />
         </button>
       )}
 
@@ -88,14 +76,13 @@ function App() {
             <p className="modal-subtext">Select your preferred wallet:</p>
 
             <button className="close-btn" onClick={() => setIsModalOpen(false)}>
-              x
+            <MdOutlineCancel />
             </button>
             
             <div className="wallet-list">
               {connectors.map((connector) => {
-                // Force the "Installed" text to show for all connectors
-                // You can customize this logic based on your requirements
-                const isInstalled = true; // Show for all wallets
+                
+                const isInstalled = true; 
 
                 return (
                   <button
@@ -107,27 +94,23 @@ function App() {
                     }}
                   >
                     <div className="wallet-btn-content">
-                      <img 
-                        src={getWalletIcon(connector.name)} 
-                        alt={`${connector.name} icon`} 
-                        className="wallet-icon" 
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = walletIcons.default;
-                        }}
-                      />
                       <div className="wallet-text">
+                      <img 
+                         src={connector.icon || 'https://seeklogo.com/images/W/walletconnect-logo-EE83B50C97-seeklogo.com.png'} alt={connector.name} className="w-6 h-6 rounded-full" />
                         <span>{connector.name}</span>
-                        {isInstalled && (
+                      </div>
+                        <div>
+                          {isInstalled && (
                           <span className="installed-text">Installed</span>
                         )}
-                      </div>
+                        </div>
+                        
                     </div>
                   </button>
                 );
               })}
             </div>
-            <a target="_blank" href="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"><p className="text-xs">Download supported wallet</p></a>
+            <a target="_blank" href="https://chromewebstore.google.com/search/wallet"><p className="text-xs">Download more wallet 🔗</p> </a>
           </div>
         </div>
       )}
