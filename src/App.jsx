@@ -20,7 +20,7 @@ function App() {
     <div className="container">
       
       <header>
-        <h1>wallet connect component</h1>
+        <h1><span className="text-red-600">K</span>ode<span className="text-purple-500"  >DA</span>pp</h1>
       </header>
 
   
@@ -41,7 +41,7 @@ function App() {
               className="network-btn dropdown-toggle"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              Switch Network
+              Switch Network <p>🔻</p>
             </button>
             {isDropdownOpen && (
               <div className="dropdown-menu">
@@ -63,7 +63,7 @@ function App() {
         </div>
       ) : (
         <button className="connect-btn" onClick={() => setIsModalOpen(true)}>
-          Connect Wallet
+          Connect Wallet <p> > </p>
         </button>
       )}
 
@@ -75,7 +75,10 @@ function App() {
             <p className="modal-subtext">Select your preferred wallet:</p>
 
            
-            <div className="wallet-list">
+            <div className="wallet-list ">
+            <button className="close-btn" onClick={() => setIsModalOpen(false)}>
+              x
+            </button>
               {connectors.map((connector) => (
                 <button
                   key={connector.id}
@@ -85,14 +88,11 @@ function App() {
                     setIsModalOpen(false);
                   }}
                 >
-                  {connector.name}
+                  {connector.name} <p className="text-xs text-green-400" >Installed</p>
                 </button>
               ))}
             </div>
-
-            <button className="close-btn" onClick={() => setIsModalOpen(false)}>
-              Close
-            </button>
+              <a target="_blank"  href="https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn "><p className="text-xs " >Download supported wallet  > </p></a>
           </div>
         </div>
       )}
