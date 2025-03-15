@@ -77,7 +77,7 @@ function App() {
         </div>
       ) : (
         <button className="connect-btn" onClick={() => setIsModalOpen(true)}>
-          Connect Wallet <p>  </p>
+          Connect Wallet 
         </button>
       )}
 
@@ -87,7 +87,7 @@ function App() {
             <h2>Choose a Wallet</h2>
             <p className="modal-subtext">Select your preferred wallet:</p>
 
-            <button className="close-btn" onClick={() => setIsModalOpen(false)}>
+            <button className="close-btn text-red-700" onClick={() => setIsModalOpen(false)}>
               x
             </button>
             

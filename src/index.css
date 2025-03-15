@@ -107,6 +107,7 @@ header {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
   text-align: center;
   animation: slideUp 0.4s ease-in-out;
+  position: relative;
 }
 
 .modal h2 {
@@ -189,12 +190,14 @@ header {
   border-radius: 1rem;
   font-size: 25px;
   position: absolute;
-  top: -6rem;
-  right: -20px;
+  top: 0;
+  right: 1rem;
+
+
 }
 
 .close-btn:hover {
-  background: #282141;
+  background: #1b162d;
 }
 
 /* Network Dropdown */
